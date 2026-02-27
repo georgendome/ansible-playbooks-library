@@ -1,0 +1,17 @@
+# PowerShell Automation Toolkit
+
+A collection of PowerShell scripts for automating Windows Server, Active Directory, GPO, and endpoint management tasks.
+
+## Features
+- Active Directory user/group automation
+- GPO reporting and backup
+- Windows patching automation
+- Event log collection
+- Server health checks
+- Endpoint security configuration
+
+## Technologies
+- PowerShell
+- Active Directory
+- Windows Server
+- ManageEngine / Intune
