@@ -1,0 +1,26 @@
+---
+- name: Provision Linux Server
+  hosts: linux
+  become: yes
+
+  tasks:
+    - name: Update packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install baseline packages
+      apt:
+        name:
+          - curl
+          - wget
+          - vim
+          - net-tools
+          - htop
+        state: present
+
+    - name: Create admin user
+      user:
+        name: admin
+        groups: sudo
+        shell: /bin/bash
