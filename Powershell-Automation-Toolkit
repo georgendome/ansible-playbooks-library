@@ -1,17 +1,15 @@
-# PowerShell Automation Toolkit
+Import-Module ActiveDirectory
 
-A collection of PowerShell scripts for automating Windows Server, Active Directory, GPO, and endpoint management tasks.
+$UserFirst = "John"
+$UserLast = "Doe"
+$UserName = "$UserFirst.$UserLast"
 
-## Features
-- Active Directory user/group automation
-- GPO reporting and backup
-- Windows patching automation
-- Event log collection
-- Server health checks
-- Endpoint security configuration
-
-## Technologies
-- PowerShell
-- Active Directory
-- Windows Server
-- ManageEngine / Intune
+New-ADUser `
+    -Name "$UserFirst $UserLast" `
+    -GivenName $UserFirst `
+    -Surname $UserLast `
+    -SamAccountName $UserName `
+    -UserPrincipalName "$UserName@domain.com" `
+    -Path "OU=Users,DC=domain,DC=com" `
+    -Enabled $true `
+    -AccountPassword (ConvertTo-SecureString "TempPass123!" -AsPlainText -Force)
